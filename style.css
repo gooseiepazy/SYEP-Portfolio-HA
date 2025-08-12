@@ -1,48 +1,55 @@
-
+*{
 margin:0;
-padding: -;
-box-sizing: border-box;
-
+padding: 0;
+box-sizing:border-box;
+}
 
 body{
-  background-color: blue
+   background-color: blue
   text-align: center;
-  line-height: 2.2;
+  line-height:2.2;
+}
 
+.hero{
+   padding: 20px 10px;
+}
 
-.hero{}
+.hero img{
+ border-radius: 50%;
+  margin-bottom: 10px;
+   width: 30px;
+  height: 30px;
+}
+  
+.section{
+     font-size: 22px;
+}
 
-
-<link href/"style.css" rel="stylessheet"
-.hero img
- border radius: 50%;
- margin-bottom: 10px;
-
-
- .section h2{
-  font: size 22px;
+.hero h2{
+     font-size: 37px;
+}
+ display: flex;
+ .accent{
+     color:lightgreen(118, 197, 166);
+ 
  }
+    
+       
+       .grid{
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+       }
+  
 
- .hero h2
-  font-size: 37 px
+.grid div{
+    padding: 15px;
+    border-radius: 100px;
+  background-color: green;
+  width: 90px;
 
+}
 
-  .accent{
-
-
-
-
-
-
-
-
-    .grid div{
-       padding: 20px;
-       border radius: 40px;
-       background-color: rgb(92, 111, 111)
-        
-  }
-
-
-<section id="home" class="hero"
-  <ing src=" alt="My Profile picture"
+@media (max-width: 768px){
+    body{background-color: blue (166, 193, 193);}

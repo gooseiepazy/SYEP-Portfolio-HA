@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials - Hassan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .header .decorative-line {
+            width: 100px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.8);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .quote-icon {
+            font-size: 3rem;
+            color: #667eea;
+            opacity: 0.3;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-family: serif;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 25px;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .client-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .client-details h4 {
+            color: #333;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .client-details p {
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        .stars {
+            color: #FFD700;
+            font-size: 1.2rem;
+            margin-top: 15px;
+        }
+
+        .featured-testimonial {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .featured-testimonial .quote-icon {
+            color: rgba(255, 255, 255, 0.3);
+            position: static;
+            margin-bottom: 20px;
+        }
+
+        .featured-testimonial .testimonial-text {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .featured-testimonial .client-avatar {
+            background: rgba(255, 255, 255, 0.2);
+            width: 60px;
+            height: 60px;
+            margin: 0 auto;
+        }
+
+        .featured-testimonial .client-details {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .featured-testimonial .client-details h4 {
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .featured-testimonial .client-details p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 60px;
+            color: white;
+        }
+
+        .cta-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 25px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .cta-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonial-card {
+                padding: 25px;
+            }
+            
+            .featured-testimonial {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Hassan</h1>
+            <p class="subtitle">What clients are saying</p>
+            <div class="decorative-line"></div>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card featured-testimonial">
+                <div class="quote-icon">"</div>
+                <div class="testimonial-text">
+                    Hassan's work exceeded all our expectations. His attention to detail and professional approach made our project a huge success. I would highly recommend him to anyone looking for quality results.
+                </div>
+                <div class="client-avatar">SM</div>
+                <div class="client-details">
+                    <h4>Sarah Martinez</h4>
+                    <p>CEO, TechVision Inc.</p>
+                </div>
+                <div class="stars">★★★★★</div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <div class="testimonial-text">
+                    Working with Hassan was an absolute pleasure. He delivered exceptional results on time and within budget. His expertise and dedication really shine through in everything he does.
+                </div>
+                <div class="client-info">
+                    <div class="client-avatar">MJ</div>
+                    <div class="client-details">
+                        <h4>Michael Johnson</h4>
+                        <p>Marketing Director</p>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <div class="testimonial-text">
+                    Hassan's creativity and problem-solving skills are outstanding. He took our vision and turned it into something even better than we imagined. Truly professional service.
+                </div>
+                <div class="client-info">
+                    <div class="client-avatar">ER</div>
+                    <div class="client-details">
+                        <h4>Emily Rodriguez</h4>
+                        <p>Startup Founder</p>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <div class="testimonial-text">
+                    I've worked with many professionals, but Hassan stands out for his reliability and quality of work. He's someone you can trust to get the job done right the first time.
+                </div>
+                <div class="client-info">
+                    <div class="client-avatar">DT</div>
+                    <div class="client-details">
+                        <h4>David Thompson</h4>
+                        <p>Project Manager</p>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <div class="testimonial-text">
+                    Hassan's communication throughout the project was excellent. He kept us informed every step of the way and delivered results that perfectly matched our requirements.
+                </div>
+                <div class="client-info">
+                    <div class="client-avatar">LP</div>
+                    <div class="client-details">
+                        <h4>Lisa Parker</h4>
+                        <p>Operations Manager</p>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <div class="testimonial-text">
+                    Outstanding work quality and exceptional customer service. Hassan went above and beyond to ensure our project was successful. I wouldn't hesitate to work with him again.
+                </div>
+                <div class="client-info">
+                    <div class="client-avatar">RW</div>
+                    <div class="client-details">
+                        <h4>Robert Wilson</h4>
+                        <p>Business Owner</p>
+                    </div>
+                </div>
+                <div class="stars">★★★★★</div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h3>Ready to Work Together?</h3>
+            <p>Join these satisfied clients and let's create something amazing together.</p>
+            <a href="#contact" class="cta-button">Get In Touch</a>
+        </div>
+    </div>
+</body>
+</html>
